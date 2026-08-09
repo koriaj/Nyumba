@@ -1,6 +1,8 @@
 package nyumbalink.repository;
 
+
 import nyumbalink.entity.Unit;
+import nyumbalink.entity.UnitStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -10,6 +12,10 @@ public interface UnitRepository
 
     List<Unit> findByPropertyId(Long propertyId);
 
-    List<Unit> findByStatus(
-            nyumbalink.entity.UnitStatus status);
+    List<Unit> findByStatus(UnitStatus status);
+
+    boolean existsByPropertyIdAndUnitNumber(
+            Long propertyId,
+            String unitNumber
+    );
 }
